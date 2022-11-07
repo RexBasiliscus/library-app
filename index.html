@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/favicon-black.ico">
+  <title>Library</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <div class="background">
+
+    <h1>
+      <i class="fas fa-book-open"></i>
+      My Bookshelf
+    </h1>
+
+    <div class="user-input-ribbon">
+
+      <form class="book-input">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" id="author" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+          <label for="pages">Number of pages</label>
+          <input type="text" id="pages" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+          <label for="read">I have read this book!</label>
+          <input type="checkbox" id="read">
+        </div>
+      </form>
+      <input type="submit" value="Add new Book" id="submit">
+
+    </div>
+
+    <div class="output-table">
+      <table class="table">
+        <thead>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Read?</th>
+        </thead>
+        <tr>
+          <td>Hobbit</td>
+          <td>J.R.R. Tolkien</td>
+          <td>280</td>
+          <td>No</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  
+</body>
+</html>
