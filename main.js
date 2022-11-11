@@ -5,44 +5,50 @@ class Book {
     this.pages = pages;
   }
 
-  addBookToLibrary(book) {
+  addBookToLibrary() {
     const shelf = document.querySelector('#bookshelf');
     const row = document.createElement('tr');
 
     row.innerHTML = `
-      <td>${book.title}</td>
-      <td>${book.author}</td>
-      <td>${book.pages}</td>
-      <td>
+      <td class="first-column">${book.title}</td>
+      <td class="second-column">${book.author}</td>
+      <td class="third-column">${book.pages}</td>
+      <td class="fourth-column">
         <i class="fa-sharp fa-solid fa-question"></i>
-        <i class="fa-solid fa-trash"></i>
+        <i class="fa-solid fa-trash delete"></i>
       </td>
-      
     `;
 
     shelf.appendChild(row);
+
+    document.querySelector("#title").value = '';
+    document.querySelector("#author").value = '';
+    document.querySelector("#pages").value = '';
+  }
+
+  deleteBook(e) {
+    if(e.target.classList.contains('delete')) {
+      e.target.parentElement.parentElement.remove();
+    }
   }
 }
 
+let book;
 
-
-
-
-// Caching the DOM
-const bookInput = document.querySelector('.book-input');
-
-
-// Events
-bookInput.addEventListener('submit', (e) => {
+// Submit info 
+document.querySelector(".book-input").addEventListener('submit', (e) => {
   e.preventDefault();
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
 
-  const bookTitle = document.querySelector("#title").value;
-  const bookAuthor = document.querySelector("#author").value;
-  const bookPages = document.querySelector("#pages").value;
-
-  const book = new Book(bookTitle, bookAuthor, bookPages);
+  book = new Book(title, author, pages);
   book.addBookToLibrary(book);
-  // console.log(book);
+})
+
+// Delete book btn
+document.querySelector("#bookshelf").addEventListener('click', (e) => {
+  book.deleteBook(e);
 })
 
 
