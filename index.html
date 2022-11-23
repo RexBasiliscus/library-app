@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="images/favicon-black.ico">
   <title>Library</title>
-  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
   <link rel="stylesheet" href="styles.css">
   <script src="main.js" defer></script>
 </head>
@@ -14,10 +13,10 @@
 <body>
   <div class="background">
 
-    <h1>
-      <i class="fas fa-book-open"></i>
-      My Bookshelf
-    </h1>
+    <div class="header">
+      <img src="images/favicon-black.ico" alt="book">
+      <h1>My Bookshelf</h1>
+    </div>
 
     <div class="user-input-ribbon">
 
@@ -44,10 +43,10 @@
       <table class="table">
         <thead>
           <tr id="first-row">
-            <th>Title</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Status</th>
+            <th class="first-column">Title</th>
+            <th class="second-column">Author</th>
+            <th class="third-column">Pages</th>
+            <th class="fourth-column">Status</th>
           </tr>
         </thead>
         <tbody id="bookshelf"></tbody>

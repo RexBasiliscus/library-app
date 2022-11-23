@@ -14,8 +14,8 @@ class Book {
       <td class="second-column">${book.author}</td>
       <td class="third-column">${book.pages}</td>
       <td class="fourth-column">
-        <i class="fa-sharp fa-solid fa-question"></i>
-        <i class="fa-solid fa-trash delete"></i>
+        <img class="read" src="images/question_mark.png" alt="questionmark">
+        <img class="delete" src="images/delete-icon.png" alt="delete-icon">
       </td>
     `;
 
@@ -26,9 +26,21 @@ class Book {
     document.querySelector("#pages").value = '';
   }
 
-  deleteBook(e) {
+  buttonOptions(e) {
     if(e.target.classList.contains('delete')) {
       e.target.parentElement.parentElement.remove();
+    }
+
+    if(e.target.classList.contains('read')) {
+      e.target.parentElement.innerHTML = `
+      <img class="check" src="images/check-icon.png" alt="check-icon">
+      <img class="delete" src="images/delete-icon.png" alt="delete-icon">`;
+    }
+
+    if(e.target.classList.contains('check')) {
+      e.target.parentElement.innerHTML = `
+      <img class="read" src="images/question_mark.png" alt="questionmark">
+      <img class="delete" src="images/delete-icon.png" alt="delete-icon">`;
     }
   }
 }
@@ -46,9 +58,9 @@ document.querySelector(".book-input").addEventListener('submit', (e) => {
   book.addBookToLibrary(book);
 })
 
-// Delete book btn
+// book btns
 document.querySelector("#bookshelf").addEventListener('click', (e) => {
-  book.deleteBook(e);
+  book.buttonOptions(e);
 })
 
 
